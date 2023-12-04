@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Information</title>
+<style>
+    body {
+      text-align:center;
+      font-family: Arial, sans-serif;
+      
+      padding: 10px; 
+      
+      background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqrkSSi8lQizqdEcUc8QJE-CwcVmY43jq3-A&usqp=CAU");
+      background-size : cover;
+      background-repeat: no-repeat;  
+}
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+  
+      width: 30%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+  <script>
+    function updateProductInfo() {
+      const productName = document.getElementById('product-name').value;
+      const productPrice = parseFloat(document.getElementById('product-price').value);
+      
+      if (productName.trim() === "" || isNaN(productPrice)) {
+        alert("Please enter a valid product name and price.");
+        return;
+      }
+      
+      
+      const existingProduct = document.querySelector(`[data-product="${productName}"]`);
+      
+      if (existingProduct) {
+     
+        existingProduct.querySelector('.price').textContent = `$${productPrice.toFixed(2)}`;
+      } else {
+        
+        const productList = document.getElementById('product-list');
+        const newProduct = document.createElement('li');
+        newProduct.dataset.product = productName;
+        newProduct.innerHTML = `<strong>${productName}</strong> - Price: <span class="price">$${productPrice.toFixed(2)}</span>`;
+        productList.appendChild(newProduct);
+      }
+      
+    
+      document.getElementById('product-name').value = "";
+      document.getElementById('product-price').value = "";
+    }
+  </script>
+</head>
+<body>
+
+  <h1>Product Information</h1>
+  
+  <label for="product-name">Product Name:</label>
+  <input type="text" id="product-name" required>
+  <br><br>
+  
+  <label for="product-price">Product Price:</label>
+  <input type="number" id="product-price" step="0.01" required>
+  <br><br>
+  
+  <button onclick="updateProductInfo()">Update product details</button>
+  
+  <h2>Updated Product List:</h2>
+  <ul id="product-list">
+    <!-- Sample existing product (remove this in a real scenario) -->
+    <li data-product="Existing Product"><strong>Existing Product</strong> - Price: <span class="price">$0.00</span></li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Ordering Website - Favorites</title>
+  <style>
+    body {
+      background-image: url('https://cdn.pixabay.com/photo/2016/11/18/15/03/burger-1835192_1280.jpg');
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: rgb(255, 255, 255);
+    }
+
+    #items {
+      margin-bottom: 20px;
+    }
+
+    .item {
+      margin-bottom: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .item span {
+      flex-grow: 1;
+    }
+
+    .item button {
+      background-color: #FF4081;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .item button.remove {
+      background-color: #E53935;
+    }
+
+    #favorites {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #favorites li {
+      margin-bottom: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+
+    }h2 {
+            color: #000000;
+    }
+    
+  </style>
+</head>
+<body>
+  <h1>My Favorites</h1>
+
+  <h2>Available Items:</h2>
+  <div id="items">
+    <div class="item">
+      <span>Biryani</span>
+      <button onclick="toggleFavorite(this)" data-item="Biryani">Add to Favorites</button>
+    </div>
+    <div class="item">
+      <span>Parotta</span>
+      <button onclick="toggleFavorite(this)" data-item="Parotta">Add to Favorites</button>
+    </div>
+    <div class="item">
+      <span>Chicken Rice</span>
+      <button onclick="toggleFavorite(this)" data-item="Chicken Rice">Add to Favorites</button>
+    </div>
+    <div class="item">
+      <span>Chicken Noodles</span>
+      <button onclick="toggleFavorite(this)" data-item="Chicken Noodles">Add to Favorites</button>
+    </div>
+    <div class="item">
+      <span>Meals</span>
+      <button onclick="toggleFavorite(this)" data-item="Meals">Add to Favorites</button>
+    </div>
+    <div class="item">
+      <span>Kothu Parotta</span>
+      <button onclick="toggleFavorite(this)" data-item="Kothu Parotta">Add to Favorites</button>
+    </div>
+  </div>
+
+  <h2>My Favorite Items:</h2>
+  <ul id="favorites">
+    <!-- Favorite items will be dynamically added here -->
+  </ul>
+
+  <script>
+    // Function to toggle favorite status
+    function toggleFavorite(button) {
+      var item = button.previousElementSibling;
+
+      // Toggle the 'favorite' class on the item
+      item.classList.toggle('favorite');
+
+      // Check if the item is a favorite
+      if (item.classList.contains('favorite')) {
+        button.textContent = 'Remove from Favorites';
+        addToFavorites(item.textContent);
+      } else {
+        button.textContent = 'Add to Favorites';
+        removeFromFavorites(item.textContent);
+      }
+    }
+
+    // Function to add an item to the favorites list
+    function addToFavorites(item) {
+      var favoritesList = document.getElementById('favorites');
+
+      // Check if the item is already in favorites
+      var existingItem = favoritesList.querySelector('li[data-item="' + item + '"]');
+      if (existingItem) {
+        return; // Skip if already in favorites
+      }
+
+      // Create a new list item
+      var listItem = document.createElement('li');
+      listItem.textContent = item;
+      listItem.setAttribute('data-item', item);
+
+      // Append the new item to the favorites list
+      favoritesList.appendChild(listItem);
+    }
+
+    // Function to remove an item from the favorites list
+    function removeFromFavorites(item) {
+      var favoritesList = document.getElementById('favorites');
+
+      // Find and remove the list item with the matching item
+      var listItem = favoritesList.querySelector('li[data-item="' + item + '"]');
+      if (listItem) {
+        favoritesList.removeChild(listItem);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FAQ</title>
+    <style>
+        body{
+            background-image: url("https://cdn.pixabay.com/photo/2016/11/18/15/03/burger-1835192_1280.jpg");
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+        }
+        .layout{
+            width: 600px;
+            margin: auto;
+        }
+        .accordion{
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color:white;
+            border-radius: 10px;
+        }
+        .accordion__question p{
+            margin: 5px;
+            padding: 0;
+            font-family: Verdana;
+            font-size: 20px;
+            background-color: black;
+        }
+        .accordion__answer p{
+            margin: 5px;
+            padding: 10px;
+            font-size: large;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgb(255, 255, 255);
+            background-color:dimgray;
+            border-radius: 10px; 
+        }
+        .accordion:hover{
+            cursor: pointer;
+        }
+        .accordion__answer {
+            display: none;
+        } 
+        .accordion.active .accordion__answer {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color:white; text-align:center"><big><big><big>Quick Serve</big></big></big></h1>
+    <div class="layout">
+        <div class="accordion">
+            <div class="accordion__question">
+                <p>1. How do I place an order?</p>
+
+            </div>
+            <div class="accordion__answer">
+                <p>You can use our quick serve website for ordering your food.
+Step -1: Open quick serve website<br>
+Step -2: Log in/sign up your account<br>
+Step -3: Add your orders in the home page.And select order option<br>
+Step -4: You can do gpay/pay tm from payment option<br>
+Step -5: Your order is successfully send to amenity</p>
+
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion__question">
+                <p>2. What payment methods are accepted?</p>
+
+            </div>
+            <div class="accordion__answer">
+                <p>
+                    Gpay and paytm are accepted . If it is not possible you can do spot payment also.
+                </p>
+
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion__question">
+                <p>3. How long does serving take?</p>
+
+            </div>
+            <div class="accordion__answer">
+                <p>
+                    Since you have registered already from our app you can show your token number and receive your food immediately.
+                </p>
+
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion__question">
+                <p>4. Is there a minimum order amount?
+
+            </div>
+            <div class="accordion__answer">
+                <p>
+                    Yes , there is good news for you , as per quantity of food ordering the total gets reduced.
+                </p>
+
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion__question">
+                <p>5.Is there any special food updates?</p>
+
+            </div>
+            <div class="accordion__answer">
+                <p>
+                    The special food arrangements with duration ,cost and new menu will be updated from the amenity.
+                </p>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        let answers=document.querySelectorAll(".accordion");
+        answers.forEach((event)=>{
+            event.addEventListener('click',()=>{
+                if(event.classList.contains("active")){
+                    event.classList.remove("active");
+                }
+                else{
+                    event.classList.add("active");
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

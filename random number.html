@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Ordering Website</title>
+  <style>   
+  body{
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/18/15/03/burger-1835192_1280.jpg');
+    background-size: cover;
+    }
+    
+    .generateRandomID {
+      padding: 10px 20px;
+      font-size: 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+    } 
+    </style>
+</head>
+<body><br><br><br>
+  <h1>VERIFICATION ID</h1>
+  
+  <button onclick="generateRandomID()">Place Order</button>
+  <p id="order-id"></p>
+  
+  <script>
+    function generateRandomID() {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      const idLength = 8;
+      let randomID = '';
+
+      for (let i = 0; i < idLength; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        randomID += characters.charAt(randomIndex);
+      }
+
+      document.getElementById('order-id').textContent = `Order ID: ${randomID}`;
+    }
+  </script>
+</body>
+</html>

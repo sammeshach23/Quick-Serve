@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Status</title>
+  <style>
+    .status-button {
+      padding: 10px 20px;
+      font-size: 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    
+    .delivered {
+      background-color: green;
+      color: white;
+    }
+    
+    .not-delivered {
+      background-color: red;
+      color: white;
+    }
+    body{
+background-image: url('https://cdn.pixabay.com/photo/2016/11/18/15/03/burger-1835192_1280.jpg');
+background-size: cover;
+}
+h1 {
+            font-size: 36px; 
+            text-align: LEFT;
+            color: #4800ff;
+            font-family: 'Roboto Slab', serif;
+        }
+  </style>
+  <script>
+    function hideNotDeliveredButton() {
+      var notDeliveredButton = document.querySelector('.not-delivered');
+      notDeliveredButton.style.display = 'none';
+    }
+  </script>
+</head>
+<body><br><br><br><br><br><br><br>
+  <h1>Order Status</h1>
+  
+  <p><h2>Select the status of the order:</h2></p>
+  <button class="status-button delivered" onclick="hideNotDeliveredButton()">Delivered</button>
+  <button class="status-button not-delivered">Not Delivered</button>
+</body>
+</html>

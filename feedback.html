@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+body{
+background-image:url("https://e0.pxfuel.com/wallpapers/421/825/desktop-wallpaper-mexican-food-background-seamless-food-delivery-stepone-for-your-mobile-tablet-explore-mexican-food-mexican-for-walls-mexican-style-mexicans-with-attitude.jpg");
+background-size:cover;
+}
+h1 {
+  text-align: center;
+}
+
+#rating-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+p {
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.rating-text {
+  margin-left: 5px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+}
+
+#feedback-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"],
+
+textarea {
+  width: 100%;
+  padding: 100px;
+  margin-bottom: 100px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+</style>
+</head>
+
+<body>
+   <h1>User Satisfaction Survey</h1>
+    <form id="survey-form">
+    <table class="center">
+      <tr>
+        <th>Question</th>
+        <th>Satisfaction Rating</th>
+      </tr>
+      <tr>
+        <td>How satisfied are you with the website design?</td>
+        <td>
+          <select name="rating1" required>
+            <option value="">Select</option>
+            <option value="5">Excellent</option>
+            <option value="4">Very Good</option>
+            <option value="3">Good</option>
+            <option value="2">Fair</option>
+            <option value="1">Poor</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Did the ordering process meet your expectations?</td>
+        <td>
+          <select name="rating2" required>
+            <option value="">Select</option>
+            <option value="5">Excellent</option>
+            <option value="4">Very Good</option>
+            <option value="3">Good</option>
+            <option value="2">Fair</option>
+            <option value="1">Poor</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>How satisfied are you with the food quality?</td>
+        <td>
+          <select name="rating3" required>
+            <option value="">Select</option>
+            <option value="5">Excellent</option>
+            <option value="4">Very Good</option>
+            <option value="3">Good</option>
+            <option value="2">Fair</option>
+            <option value="1">Poor</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Was the delivery time prompt?</td>
+        <td>
+          <select name="rating4" required>
+            <option value="">Select</option>
+            <option value="5">Excellent</option>
+            <option value="4">Very Good</option>
+            <option value="3">Good</option>
+            <option value="2">Fair</option>
+            <option value="1">Poor</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+  </form>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
+
+<br><br>
+  <h1>Feedback Page</h1>
+  
+  <form id="feedback-form">
+    
+    <label for="message">Feedback:</label>
+    <textarea id="message" name="message" required></textarea>
+    
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

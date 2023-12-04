@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Delivery App</title>
+  <style>
+     #helpBtn a,
+     #cartBtn a,
+     #feedbackBtn a {
+     color: white;
+    }
+    button.addToFavouritesBtn a {
+      color: white;
+    }
+      body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://cdn.pixabay.com/photo/2016/11/18/15/03/burger-1835192_1280.jpg');
+      background-size: cover;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 10px;
+    }
+
+    .top-left {
+      float: left;
+    }
+
+    .app-name {
+      font-size: 48px;
+      font-family: 'Pacifico', cursive;
+      color: #FF4081;
+      margin: 0;
+    }
+
+    .top-right {
+      float: right;
+    }
+
+    button {
+      margin-left: 20px;
+      background-color: #0f63d8;
+      color: #ffffff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;sa
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .food-item {
+      border: 2px solid #460303;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 20px;
+    }
+
+    .food-item img {
+      width: 400px;
+      height: 200px;
+    }
+
+    .buttons button {
+      margin-right: 10px;
+      background-color: #4daac7;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var profileBtn = document.getElementById("profileBtn");
+      var profileDropdown = document.getElementById("profileDropdown");
+
+      profileBtn.addEventListener("click", function() {
+        profileDropdown.style.display = (profileDropdown.style.display === "block") ? "none" : "block";
+      });
+    });
+    const foodPrices = {
+      biryani: 100,
+      parotta: 30,
+      chickenRice: 60,
+      chickenNoodles: 60,
+      meals: 100,
+      kothuParotta: 50,
+      // Add more food items here with their initial prices
+    };
+
+    // Function to update the cost of a food item
+    function updateCost(foodItem, newPrice) {
+      if (foodPrices.hasOwnProperty(foodItem)) {
+        foodPrices[foodItem] = newPrice;
+        alert(`Price of ${foodItem} updated to ₹${newPrice}`);
+      } else {
+        alert(`${foodItem} not found in the menu.`);
+      }
+    }
+    
+    // Function to handle receiving messages from the second website
+    function handleMessage(event) {
+      if (event.origin !== "http://localhost:8080") { // Replace with the actual URL of the second website
+        return; // Reject messages from unknown origins
+      }
+
+      const { foodItem, newPrice } = event.data;
+
+      // Update the price of the food item in the first website
+      updateCost(foodItem, newPrice);
+    }
+
+    // Add an event listener to listen for messages from the second website
+    window.addEventListener("message", handleMessage);
+   
+    // Function to handle updating the cost of a food item
+    function updateCost(foodItem, newPrice) {
+      const foodItemElement = document.querySelector(`.food-item[data-item="${foodItem}"]`);
+      if (foodItemElement) {
+        const priceElement = foodItemElement.querySelector('.price');
+        if (priceElement) {
+          priceElement.textContent = `Price: ₹${newPrice}`;
+        }
+      }
+    }
+
+    // Extract query parameters from the URL and update the price
+    const urlParams = new URLSearchParams(window.location.search);
+    const foodItem = urlParams.get('foodItem');
+    const newPrice = urlParams.get('newPrice');
+
+    if (foodItem && newPrice) {
+      updateCost(foodItem, newPrice);
+    }
+ 
+  </script>
+</head>
+<body>
+  <header>
+    <div class="top-left">
+    <div class="logo">
+    <br><br><br><img src="https://api.logo.com/api/v2/images?logo=logo_1acca895-f61c-4530-8daf-54a83d5b272b&format=webp&margins=0&quality=60&width=500&background=transparent&u=1687878665" alt="Logo"><br><br><br><br><br><br>
+  </div>
+  <div class="top-right">
+   </div>
+</header>
+    </div>
+    <div class="top-right">
+       <br><br><br><button id="profileBtn">Profile</button>
+      <div id="profileDropdown" class="dropdown-content">
+        <a href="A:\quick serve\profile.html">Profile</a>
+        <a href="A:\quick serve\fav.html">Favourites</a>
+      </div>
+      <button id="cartBtn">
+        <a href="A:\quick serve\PAY.html">Cart</a></button>
+      <button id="helpBtn">
+        <a href="file:///A:/quick%20serve/FAQ.html">Help</a>
+      </button>
+      <button id="feedbackBtn">
+        <a href="A:\quick serve\feedback.html">FeedBack</a></button>
+
+    </div><br><br><br><br><br><br><br><br><br><br><br><br>
+  </header>
+
+  <main> <div class="food-item" data-item="biryani">
+    <div class="food-item">
+
+      <img src="https://images.indulgexpress.com/uploads/user/imagelibrary/2019/8/1/original/Biryanifest.jpg?w=400&dpr=2.6" alt="Biryani">
+      <h2>Biryani</h2>
+      <p>Delicious and aromatic rice dish made with basmati rice, meat, and a blend of spices.</p>
+      <p>Price: ₹100</p>
+      <div class="food-item" data-item="biryani">
+      <div class="buttons">
+        <button class="addToCartBtn" onclick="updateQuantity(this, 1)">+</button>
+        <span class="quantity">0</span>
+        <button class="removeFromCartBtn" onclick="updateQuantity(this, -1)">-</button>
+        <button type="addToFavouritesBtn"><a href="A:\quick serve\fav.html">Add to Favourites</a></button>
+      </div>
+    </div>
+    </div> </div>
+    <div class="food-item" data-item="parotta">
+    <div class="food-item">
+      <img src="https://c.ndtvimg.com/2021-05/tj7sdqj8_parotta_625x300_14_May_21.jpg?im=FeatureCrop,algorithm=dnn,width=1200,height=675" alt="Parotta">
+      <h2>Parotta</h2>
+      <p>A popular Indian layered flatbread made with maida (all-purpose flour) and served with curry.</p>
+      <p>Price: ₹30</p>
+      <div class="buttons">
+        <button class="addToCartBtn" onclick="updateQuantity(this, 1)">+</button>
+        <span class="quantity">0</span>
+        <button class="removeFromCartBtn" onclick="updateQuantity(this, -1)">-</button>
+        <button type="addToFavouritesBtn"><a href="A:\quick serve\fav.html">Add to Favourites</a></button>
+      </div>
+    </div>
+  </div>
+  <div class="food-item" data-item="chickenRice">
+    <div class="food-item">
+      <img src="https://static.toiimg.com/thumb/75581339.cms?imgsize=1753029&width=800&height=800" alt="Chicken Rice">
+      <h2>Chicken Rice</h2>
+      <p>A fragrant rice dish cooked with chicken and flavored with herbs and spices.</p>
+      <p>Price: ₹60</p>
+      <div class="buttons">
+        <button class="addToCartBtn" onclick="updateQuantity(this, 1)">+</button>
+        <span class="quantity">0</span>
+        <button class="removeFromCartBtn" onclick="updateQuantity(this, -1)">-</button>
+        <button type="addToFavouritesBtn"><a href="A:\quick serve\fav.html">Add to Favourites</a></button>
+      </div>
+    </div>
+    </div></div>
+    <div class="food-item" data-item="chickenNoodles">
+    <div class="food-item">
+      <img src="https://lh3.googleusercontent.com/j1vxuOYwj5ewGu2FYnVUJd3MaSNgC-BdUJpxJ2Vk-7vqiPapJZCh7wegvXkzSH4pB6Pit0PTxlXhM-WPApN_rRYRQmKVuCvF5BHu7Atw=w512-rw" alt="Chicken Noodles">
+      <h2>Chicken Noodles</h2>
+      <p>Stir-fried noodles with chicken, vegetables, and a savory sauce.</p>
+      <p>Price: ₹60</p>
+      <div class="buttons">
+        <button class="addToCartBtn" onclick="updateQuantity(this, 1)">+</button>
+        <span class="quantity">0</span>
+        <button class="removeFromCartBtn" onclick="updateQuantity(this, -1)">-</button>
+        <button type="addToFavouritesBtn"><a href="A:\quick serve\fav.html">Add to Favourites</a></button>
+      </div>
+    </div>
+    </div>
+    <div class="food-item" data-item="meals">
+    <div class="food-item">
+      <img src="https://images.click.in/classifieds/images/151/31_10_2016_14_42_03_tct05f8l8jhlreek8kc8du2fc4_5fk41dhxzl.jpg" alt="Meals">
+      <h2>Meals</h2>
+      <p>A complete and wholesome meal consisting of rice, dal, vegetables, and chapati.</p>
+      <p>Price: ₹100</p>
+      <div class="buttons">
+        <button class="addToCartBtn" onclick="updateQuantity(this, 1)">+</button>
+        <span class="quantity">0</span>
+        <button class="removeFromCartBtn" onclick="updateQuantity(this, -1)">-</button>
+        <button type="addToFavouritesBtn"><a href="A:\quick serve\fav.html">Add to Favourites</a></button>
+      </div>
+    </div></div>
+    <div class="food-item" data-item="kothuParotta">
+    <div class="food-item">
+      <img src="https://www.yummytummyaarthi.com/wp-content/uploads/2011/03/1-500x427.jpeg" alt="Kothu Parotta">
+      <h2>Kothu Parotta</h2>
+      <p>A popular South Indian street food made with shredded parotta, mixed with vegetables, eggs, and spices.</p>
+      <p>Price: ₹50</p>
+      <div class="buttons">
+        <button class="addToCartBtn" onclick="updateQuantity(this, 1)">+</button>
+        <span class="quantity">0</span>
+        <button class="removeFromCartBtn" onclick="updateQuantity(this, -1)">-</button>
+        <button type="addToFavouritesBtn"><a href="A:\quick serve\fav.html">Add to Favourites</a></button>
+      </div>
+    </div></div>
+
+  </main>
+
+    <script>
+      function updateQuantity(button, value) {
+        var quantityElement = button.parentNode.querySelector('.quantity');
+        var quantity = parseInt(quantityElement.textContent);
+        quantity += value;
+        quantityElement.textContent = Math.max(quantity, 0);
+      }
+      function addToFavorites(button) {
+        // Add your code here to handle adding to favorites
+        console.log("Added to favorites");
+      }
+  </script>
+</body>
+</html>

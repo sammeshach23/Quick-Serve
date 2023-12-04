@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Food Ordering App - Order page</title>
+  <style>
+    body {
+      background-image: url('https://cdn.pixabay.com/photo/2016/11/18/15/03/burger-1835192_1280.jpg');
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    h1 {
+      font-size: 56px;
+      text-align: center;
+      margin-top: 50px;
+      color: rgb(29, 206, 53);
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 30px;
+      color: black;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-top: 20px;
+      color: black;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      color: black;
+    }
+
+    li {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: black;
+    }
+
+    #total-price {
+      font-weight: bold;
+      color: black;
+    }
+
+    button {
+      height: 50px;
+      width: 150px;
+      font-size: 18px;
+      background-color: #FF4081;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Order</h1>
+ 
+  <h2>Your Order:</h2>
+  <ul id="order-list">
+  </ul>
+  
+  <h3>Total: <span id="total-price">₹0.00</span></h3>
+  <button onclick="addToCartBtn()">ADD</button>
+  
+  <script>
+    var menuItems = [
+      { name: "Biryani", price: 100 },
+      { name: "Parotta", price: 30 },
+      { name: "Chicken Rice", price: 60 },
+      { name: "Chicken Noodles", price: 60 },
+      { name: "Meals", price: 100 },
+      { name: "Kothu Parotta", price: 50 }
+    ];
+    
+    var order = [];
+   
+    function addToCartBtn() {
+      var itemNumber = parseInt(document.getElementById("item-number").value);
+      
+      if (isNaN(itemNumber) || itemNumber < 1 || itemNumber > menuItems.length) {
+        alert("Invalid item number. Please try again.");
+        return;
+      }
+      
+      var item = menuItems[itemNumber - 1];
+      order.push(item);
+      
+      var orderList = document.getElementById("order-list");
+      var newItem = document.createElement("li");
+      newItem.textContent = item.name + " - ₹" + item.price.toFixed(2);
+      orderList.appendChild(newItem);
+      
+      var totalPrice = document.getElementById("total-price");
+      var currentTotal = parseFloat(totalPrice.textContent.substr(1));
+      var newTotal = currentTotal + item.price;
+      totalPrice.textContent = "₹" + newTotal.toFixed(2);
+    }
+    function getQueryParams() {
+      var queryString = window.location.search;
+      var urlParams = new URLSearchParams(queryString);
+      
+      var food = urlParams.get('food');
+      var drink = urlParams.get('drink');
+      
+      // Display the selected options on the order page
+      document.getElementById('selected-food').textContent = food;
+      document.getElementById('selected-drink').textContent = drink;
+    }
+    
+    getQueryParams();
+  </script>
+
+</body>
+</html>

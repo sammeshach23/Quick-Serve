@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Delivery App</title>
+  <style>
+     #orderBtn a,
+     #updateBtn a,
+     #receiptBtn a,
+     #statusBtn a {
+     color: white;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://cdn.pixabay.com/photo/2016/11/18/15/03/burger-1835192_1280.jpg');
+      background-size: cover;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 10px;
+    }
+
+    .top-left {
+      float: left;
+    }
+
+    .app-name {
+      font-size: 48px;
+      font-family: 'Pacifico', cursive;
+      color: #FF4081;
+      margin: 0;
+    }
+
+    .top-right {
+      float: right;
+    }
+
+    button {
+      margin-left: 20px;
+      background-color: #0f63d8;
+      color: #ffffff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .food-item {
+      border: 2px solid #460303;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 20px;
+    }
+
+    .food-item img {
+      width: 200px;
+      height: 200px;
+    }
+
+    .buttons button {
+      margin-right: 10px;
+      background-color: #4daac7;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var profileBtn = document.getElementById("profileBtn");
+      var profileDropdown = document.getElementById("profileDropdown");
+
+      profileBtn.addEventListener("click", function() {
+        profileDropdown.style.display = (profileDropdown.style.display === "block") ? "none" : "block";
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="top-left">
+    <div class="logo">
+    <br><br><br><img src="https://api.logo.com/api/v2/images?logo=logo_1acca895-f61c-4530-8daf-54a83d5b272b&format=webp&margins=0&quality=60&width=500&background=transparent&u=1687878665" alt="Logo"><br><br><br><br><br><br>
+  </div>
+  <div class="top-right">
+   </div>
+</header>
+
+    </div>
+    <div class="top-right">
+       <br><br><br><button id="orderBtn">
+       <a href="A:\quick serve\ORDERS.html">ORDER</a></button>
+      
+      <button id="updateBtn">
+        <a href="A:\quick serve\updatecost.html"> UPDATE DETAILS</a></button>
+      <button id="statusBtn">
+        <a href="A:\quick serve\deliverstatus.html">  STATUS</a></button>
+      <button id="receiptBtn">
+        <a href="A:\quick serve\RECEIPT.html"> RECIEPT</a></button>
+      
+
+    </div><br><br><br><br><br><br><br><br><br><br><br><br>
+  </header>
+
+ 
+</html>

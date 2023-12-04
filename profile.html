@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<style>
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2016/11/18/15/03/burger-1835192_1280.jpg");
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  background-image: url("https://i.pinimg.com/originals/e3/8b/7c/e38b7ca307838fbb48d1d53fcdd437b8.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 500px;
+  margin: 0 auto;
+  background-color: beige;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 56px;
+  text-align: top;
+  margin-top: 10px;
+  color: rgb(255, 255, 255);
+}
+
+h2 {
+  font-size: 46px;
+  text-align: top;
+  margin-top: 10px;
+  color: rgb(32, 4, 52);
+}
+
+form {
+  font-size: 36px;
+  text-align: top;
+  margin-top: 10px;
+  color: rgb(60, 159, 11);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.details {
+  text-align: center;
+}
+button {
+      height: 50px;
+      width: 150px;
+      font-size: 18px;
+      background-color: #FF4081;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Page</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+function updateProfile() {
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+
+  document.getElementById("profile-name").textContent = name;
+  document.getElementById("profile-email").textContent = "Email: " + email;
+  document.getElementById("profile-phone").textContent = "Phone: " + phone;
+}
+</script>
+</head>
+
+<body>
+<header>
+  <h1>Welcome to Amenity</h1>
+</header>
+
+<main text-align="center">
+  <section class="profile">
+    <div class="container">
+      <h2>User Profile</h2>
+      
+      <form>
+        <label for="name" style="color: rgb(0, 0, 0);">Name:</label>
+        <input type="text" id="name" required><br>
+        <br>
+        <label for="email" style="color: rgb(15, 13, 13);">Email:</label>
+        <input type="email" id="email" required><br>
+        <br>
+        <label for="phone" style="color: rgb(0, 0, 0);">Phone:</label>
+        <input type="tel" id="phone" required><br>
+        <br>
+        <br>
+        <button type="button" class="edit-btn" onclick="updateProfile()">Update Profile</button>
+      </form>
+    </div>
+  </section>
+</main>
+</body>
+
+</html>
