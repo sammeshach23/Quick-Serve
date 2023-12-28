@@ -1,2 +1,4 @@
 # Quick-Serve
  STREAMLINED FOOD ORDERING APP FOR EFFICIENT COLLEGE AMENITY TO AVOID OVER CROWD AND FOOD WASTAGE
+
+Site is live at https://sammeshach23.github.io/Quick-Serve/
